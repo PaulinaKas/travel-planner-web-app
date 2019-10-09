@@ -3,51 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>What's the weather like?</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <meta http-equiv="content-language" content="en">
+    <title>Current weather</title>
+    <style type="text/css">
+    h1  {
+       font-size: 2em;
+       font-weight: 800;
+       color: #30416b;
+       font-family: 'Lato', sans-serif;
+       letter-spacing: -1px;
+       line-height: 58px;
+       text-align: center;
+    }
+
+    h2  {
+       font-size: 25px;
+       font-weight: 250;
+       color: #e9edf7;
+       font-family: 'Lato', sans-serif;
+       letter-spacing: -1px;
+       line-height: 58px;
+       text-align: center;
+       background: #30416b;
+    }
+
+    p {
+        color: #111;
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 32px;
+        margin: 0 0 72px;
+        text-align: center;
+    }
+
+    .media-body .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 10%;
+    }
+
+    .control_form {
+        font-size: 40px;
+    }
+
+
+    .control_button .btn-primary {
+        background: #a87f38;
+        border-color: #a87f38;
+        color: #ffffff;
+        font-size: 20px;
+    }
+
+    .column_post {
+        width: 10%;
+    }
+
+
+    </style>
 </head>
 <body>
     <section class="hero is-primary">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    What's the weather like?
+                    Your weather
                 </h1>
+                <h2 class="subtitle">
+                    Check current weather for your favourite places!
+                </h2>
             </div>
         </div>
     </section>
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-offset-4 is-4">
+                <div class="column_post">
                     <form method="POST">
                         {% csrf_token %}
                         <div class="field has-addons">
-                            <div class="control is-expanded">
+                            <div class="control_form">
                                 {{ form.name }}
                             </div>
-                            <div class="control">
-                                <button class="button is-info">
+                            <div class="control_button">
+                                <button type="button" class="btn btn-primary">
                                     Add City
                                 </button>
                             </div>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-offset-4 is-4">
+                <div class="column_weather_image">
                     {% for weather in weather_data %}
                     <div class="box">
                         <article class="media">
-                            <div class="media-left">
-                                <figure class="image is-50x50">
-                                    <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image">
+                            <div class="media-body">
+                                <figure class="image">
+                                    <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Image" class="center">
                                 </figure>
                             </div>
                             <div class="media-content">
@@ -55,7 +114,7 @@
                                     <p>
                                         <span class="title">{{ weather.city }}</span>
                                         <br>
-                                        <span class="subtitle">{{ weather.temperature }}° F</span>
+                                        <span class="subtitle">{{ weather.temperature }}° C</span>
                                         <br> {{ weather.description }}
                                     </p>
                                 </div>
@@ -69,5 +128,6 @@
     </section>
     <footer class="footer">
     </footer>
+
 </body>
 </html>
