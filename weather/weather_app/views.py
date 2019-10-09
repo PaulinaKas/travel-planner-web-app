@@ -15,4 +15,4 @@ def index(request):
 
     context = {'weather' : weather}
 
-    return render(request, 'weather_app/index.html') #returns the index.html template
+    return render(request, 'weather_app/index.html', context) #returns the index.html template
