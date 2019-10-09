@@ -8,6 +8,8 @@ def index(request):
     city = 'Cracow'
     city_weather = requests.get(url.format(city)).json() #request the API data and convert the JSON to Python data types
 
+    form = CityForm()
+
     weather_data = []
 
     for city in cities:
