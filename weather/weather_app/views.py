@@ -8,6 +8,10 @@ def index(request):
     city = 'Cracow'
     city_weather = requests.get(url.format(city)).json() #request the API data and convert the JSON to Python data types
 
+    if request.method == 'POST': # only true if form is submitted
+        form = CityForm(request.POST) # add actual request data to form for processing
+        form.save() # will validate and save if validate
+
     form = CityForm()
 
     weather_data = []
