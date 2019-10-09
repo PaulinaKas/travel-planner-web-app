@@ -6,3 +6,4 @@ weather/weather_app/__pycache__/
 api_call.txt
 .DS_Store
 db.sqlite3
+api_keys.xlsx
