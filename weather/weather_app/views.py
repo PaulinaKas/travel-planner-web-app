@@ -25,6 +25,6 @@ def index(request):
 
         weather_data.append(weather) #add the data for the current city into our list
 
-    context = {'weather_data' : weather_data}
+    context = {'weather_data' : weather_data, 'form' : form}
 
     return render(request, 'weather_app/index.html', context) #returns the index.html template
