@@ -1,12 +1,12 @@
 from django.shortcuts import render
-import requests
 from .models import City
+from .forms import CityForm
+
+import requests
 
 def index(request):
-    url = open('weather_app/api_call.txt','r').read()
+    url = open('weather_app/api_keys.txt','r').read()
     cities = City.objects.all() #return all the cities in the database
-    city = 'Cracow'
-    city_weather = requests.get(url.format(city)).json() #request the API data and convert the JSON to Python data types
 
     if request.method == 'POST': # only true if form is submitted
         form = CityForm(request.POST) # add actual request data to form for processing
