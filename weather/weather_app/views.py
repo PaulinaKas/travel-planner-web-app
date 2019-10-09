@@ -6,4 +6,11 @@ def index(request):
     city = 'Cracow'
     city_weather = requests.get(url.format(city)).json() #request the API data and convert the JSON to Python data types
 
+    weather = {
+        'city' : city,
+        'temperature' : city_weather['main']['temp'],
+        'description' : city_weather['weather'][0]['description'],
+        'icon' : city_weather['weather'][0]['icon']
+    }
+
     return render(request, 'weather_app/index.html') #returns the index.html template
