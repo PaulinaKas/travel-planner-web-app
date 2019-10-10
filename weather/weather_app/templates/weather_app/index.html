@@ -3,17 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>What's the weather like?</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <meta http-equiv="content-language" content="en">
+    <title>Current weather</title>
+    <style type="text/css">
+    h1  {
+       font-size: 2em;
+       font-weight: 800;
+       color: #30416b;
+       font-family: 'Lato', sans-serif;
+       letter-spacing: -1px;
+       line-height: 58px;
+       text-align: center;
+    }
+
+    h2  {
+       font-size: 25px;
+       font-weight: 250;
+       color: #e9edf7;
+       font-family: 'Lato', sans-serif;
+       letter-spacing: -1px;
+       line-height: 58px;
+       text-align: center;
+       background: #30416b;
+    }
+
+    p {
+        color: #111;
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        font-weight: 200;
+        line-height: 32px;
+        margin: 0 0 72px;
+        text-align: center;
+    }
+
+    .media-left .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 10%;
+    }
+
+    
+
+    </style>
 </head>
 <body>
     <section class="hero is-primary">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title">
-                    What's the weather like?
+                    Your weather
                 </h1>
+                <h2 class="subtitle">
+                    Check current weather for your favourite places!
+                </h2>
             </div>
         </div>
     </section>
@@ -46,8 +90,8 @@
                     <div class="box">
                         <article class="media">
                             <div class="media-left">
-                                <figure class="image is-50x50">
-                                    <img src="http://openweathermap.org/img/w/{{ weather.icon }}.png" alt="Image">
+                                <figure class="image">
+                                    <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Image" class="center">
                                 </figure>
                             </div>
                             <div class="media-content">
