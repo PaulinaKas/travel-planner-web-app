@@ -7,15 +7,6 @@
     <title>Current weather</title>
     <style type="text/css">
     h1  {
-<<<<<<< HEAD
-       font-size: 2em;
-       font-weight: 800;
-       color: #30416b;
-       font-family: 'Lato', sans-serif;
-       letter-spacing: -1px;
-       line-height: 58px;
-       text-align: center;
-=======
        font-size: 60px;
        font-weight: 700;
        color: #ffffff;
@@ -26,7 +17,6 @@
        {% load static %}
        background-image: url("{% static "weather_app/background.jpeg" %}");
        background-size: cover;
->>>>>>> tmp
     }
 
     h2  {
@@ -43,10 +33,7 @@
     p {
         color: #111;
         font-family: 'Lato', sans-serif;
-<<<<<<< HEAD
-=======
         letter-spacing: -1px;
->>>>>>> tmp
         font-size: 20px;
         font-weight: 200;
         line-height: 32px;
@@ -54,35 +41,13 @@
         text-align: center;
     }
 
-<<<<<<< HEAD
-    .media-body .center {
-=======
     .media-left .center {
->>>>>>> tmp
         display: block;
         margin-left: auto;
         margin-right: auto;
         width: 10%;
     }
 
-<<<<<<< HEAD
-    .control_form {
-        font-size: 40px;
-    }
-
-
-    .control_button .btn-primary {
-        background: #a87f38;
-        border-color: #a87f38;
-        color: #ffffff;
-        font-size: 20px;
-    }
-
-    .column_post {
-        width: 10%;
-    }
-=======
->>>>>>> tmp
 
 
     </style>
@@ -103,36 +68,32 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column_post">
+                <div class="column is-offset-4 is-4">
                     <form method="POST">
                         {% csrf_token %}
                         <div class="field has-addons">
-                            <div class="control_form">
+                            <div class="control is-expanded">
                                 {{ form.name }}
                             </div>
-                            <div class="control_button">
-                                <button type="button" class="btn btn-primary">
+                            <div class="control">
+                                <button class="button is-info">
                                     Add City
                                 </button>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column_weather_image">
+                <div class="column is-offset-4 is-4">
                     {% for weather in weather_data %}
                     <div class="box">
                         <article class="media">
-<<<<<<< HEAD
-                            <div class="media-body">
-=======
                             <div class="media-left">
->>>>>>> tmp
                                 <figure class="image">
                                     <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Image" class="center">
                                 </figure>
@@ -142,7 +103,7 @@
                                     <p>
                                         <span class="title">{{ weather.city }}</span>
                                         <br>
-                                        <span class="subtitle">{{ weather.temperature }}° C</span>
+                                        <span class="subtitle">{{ weather.temperature }}° F</span>
                                         <br> {{ weather.description }}
                                     </p>
                                 </div>
@@ -156,6 +117,5 @@
     </section>
     <footer class="footer">
     </footer>
-
 </body>
 </html>
