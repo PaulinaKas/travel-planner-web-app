@@ -36,7 +36,7 @@ macOS 10.14.6
 After clonig the repo:
 1. Open terminal in place, where file ```manage.py``` is located (folder ```weather```). To make sure enter in command line ```ls``` and check if file ```manage.py``` has been printed.
 2. Enter ```python3 manage.py runserver```.
-3. Copy ```http://127.0.0.1:8000/``` to display the website.
+3. Copy ```http://127.0.0.1:8000/``` and paste it in address bar to display the website.
 
 That's all ;)
 
