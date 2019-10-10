@@ -54,11 +54,22 @@
         left: 20%;
         color: white;
         font-size: 16px;
+        padding: 14px 28px;
     }
 
     .is-info {
         border-color: #30416b;
         color: #30416b;
+    }
+
+    .hero-body {
+        {% load static %}
+        background-image: url("{% static "weather_app/background.jpeg" %}");
+        background-size: cover;
+    }
+
+    .section {
+        background-color: #987885;
     }
 
 
@@ -115,7 +126,7 @@
                                     <p>
                                         <span class="title">{{ weather.city }}</span>
                                         <br>
-                                        <span class="subtitle">{{ weather.temperature }}° F</span>
+                                        <span class="subtitle">{{ weather.temperature }}° C</span>
                                         <br> {{ weather.description }}
                                     </p>
                                 </div>
