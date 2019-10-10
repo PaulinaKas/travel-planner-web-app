@@ -1,6 +1,6 @@
 from selenium import webdriver
 
 browser = webdriver.Chrome()
-browser.get('https://localhost:8000')
+browser.get('http://127.0.0.1:8000/')
 
-assert 'something' in browser.title
+assert 'Current weather' in browser.title
