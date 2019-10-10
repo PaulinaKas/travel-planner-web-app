@@ -48,6 +48,18 @@
         width: 10%;
     }
 
+    .button {
+        position:absolute;
+        transition: .5s ease;
+        left: 20%;
+        color: white;
+        font-size: 16px;
+    }
+
+    .is-info {
+        border-color: #30416b;
+        color: #30416b;
+    }
 
 
     </style>
@@ -103,7 +115,7 @@
                                     <p>
                                         <span class="title">{{ weather.city }}</span>
                                         <br>
-                                        <span class="subtitle">{{ weather.temperature }}° C</span>
+                                        <span class="subtitle">{{ weather.temperature }}° F</span>
                                         <br> {{ weather.description }}
                                     </p>
                                 </div>
