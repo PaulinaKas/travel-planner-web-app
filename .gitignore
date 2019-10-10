@@ -6,3 +6,4 @@ weather/weather_app/__pycache__/
 .DS_Store
 db.sqlite3
 weather/weather_app/api_keys.txt
+chromedriver
