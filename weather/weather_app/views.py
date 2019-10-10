@@ -1,11 +1,9 @@
 from django.shortcuts import render
 from .models import City
 from .forms import CityForm
-<<<<<<< HEAD
 
 import requests
-=======
->>>>>>> tmp
+
 
 def index(request):
     url = open('weather_app/api_keys.txt','r').read()
