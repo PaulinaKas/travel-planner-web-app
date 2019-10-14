@@ -10,8 +10,8 @@
 #### * Status
 
 ## **General info**:
-The main goals of this project were **learning Django** framework and **testing** methodology. 
-As my target is **not to became a front-end developer**, I was satisified with the app having all necessary functions (and as you can see - beautiful interface is not one of them).
+The main goals of this project were **learning Django** framework.
+As my target isn't to became a front-end developer, I was satisified with the app having all necessary functions (and as you can see - beautiful interface is not one of them ;).
 
 The main functions are:
 * checking current weather (with temperature, pressure and short secription) based on https://openweathermap.org/
