@@ -33,4 +33,4 @@ def index(request):
 
     context = {'weather_data' : weather_data, 'form' : form}
 
-    return render(request, 'weather_app/index.html', context) #returns the index.html template
+    return render(request, 'index.html', context) 
