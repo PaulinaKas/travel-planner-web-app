@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="cache-control" content="no-cache" />
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css" media="screen">
+        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+        <link rel="stylesheet" href="/static/base.css?{% now "U" %}"/>
+        <title>Current weather</title>
+    </head>
+    <body>
+        <div class="content">
+            <div class="jumbotron">
+                <div class="col-md-12">
+                    <h1 class="title">Your weather</h1>
+                    <h2 class="subtitle">Check current weather for your favourite places!</h2>
+                    <div class="inputbox">
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form.name }}
+                            <button type="submit" class="button_add_city">Add City</button>
+                        </form>
+                    </div> <!-- end of class="inputbox" -->
+                </div> <!-- end of class="col-md-12" -->
+            </div> <!-- end of class="jumbotron" -->
+
+            {% for weather in weather_data %}
+                <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Image" class="center">
+                    <p>
+                        <span class="title">{{ weather.city }}</span>
+                            <br>
+                        <span class="subtitle">
+                            {{ weather.temperature }} °C and {{ weather.pressure }} hPa
+                            <br>
+                            {{ weather.description }}
+                        </span>
+                    </p>
+            {% endfor %}
+        </div> <!-- end of class="content" -->
+    </body>
+</html>

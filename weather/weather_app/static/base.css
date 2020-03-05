@@ -1,0 +1,30 @@
+body {
+    font-family: 'Lato';
+    padding: 2rem 3rem;
+}
+
+.content {
+    text-align: center;
+}
+
+.button, .button_add_city {
+    background:#5959D1;
+    color:#fff;
+    outline-color:#bf56ab;
+    padding:10px 10px;
+    font-size:15px;
+    text-transform:uppercase;
+    cursor: pointer;
+    margin: 10px 0px;
+    width:250px;
+    display: block;
+}
+
+#id_name {
+    padding:10px 10px;
+    font-size:15px;
+    outline-color:#fff;
+    width:600px;
+    border-color: #9d56bf;
+    display: block;
+}
