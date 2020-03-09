@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import City
 from .forms import CityForm
 
@@ -30,3 +30,11 @@ def display_forecast(request):
     context = {'weather_data' : weather_data, 'form' : form}
 
     return render(request, 'index.html', context)
+
+def delete_city(request, pk):
+    city = get_object_or_404(City, pk=pk)
+    if request.method == 'POST':
+        city.delete()
+        return redirect('/')
+
+    return render(request, 'index.html', {'city': city})
