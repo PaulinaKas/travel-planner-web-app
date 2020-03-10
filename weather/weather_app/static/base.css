@@ -34,3 +34,10 @@ body {
 table {
     margin: auto;
 }
+
+#id_text {
+    width: 400px !important;
+    height: 200px !important;
+    resize: none !important;
+    word-wrap: break-word;
+}
