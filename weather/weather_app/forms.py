@@ -1,13 +1,24 @@
-from django.forms import ModelForm, TextInput
-from .models import City
+from django import forms
+from .models import City, TravelPlan
 
-class CityForm(ModelForm):
+class CityForm(forms.models.ModelForm):
     class Meta:
         model = City
         fields = ['name']
         widgets = {
-            'name': TextInput(attrs={'class' : 'input',
-                                     'placeholder' : 'City Name',
-                                     'style':'font-size : xx-large',
-                                     })
-                }
+            'name': forms.fields.TextInput(attrs={
+                    'class' : 'input',
+                    'placeholder' : 'City Name',
+                }),
+            }
+
+class PlanForm(forms.models.ModelForm):
+    class Meta:
+        model = TravelPlan
+        fields = ['text']
+        widgets = {
+            'text': forms.Textarea(attrs={
+                    'class' : 'input',
+                    'placeholder' : 'Add your travel plan',
+                }),
+            }
