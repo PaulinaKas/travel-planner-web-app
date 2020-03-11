@@ -22,13 +22,14 @@ def display_forecast(request):
     weather_data = []
 
     for city in cities:
-        city_weather = requests.get(url.format(city)).json()
+        city_weather = requests.get(url.format(city.name)).json()
         weather = {
-            'city' : city,
+            'city' : city.name,
             'temperature' : city_weather['main']['temp'],
             'pressure' : city_weather['main']['pressure'],
             'description' : city_weather['weather'][0]['description'],
             'icon' : city_weather['weather'][0]['icon'],
+            'id': city.id,
             }
         weather_data.append(weather)
 
@@ -36,6 +37,14 @@ def display_forecast(request):
                'city_form' : city_form,
                'schedule_form': schedule_form,
                }
+
+    # Current objects number:
+    schedule_list = TravelPlan.objects.all()
+    city_list = City.objects.all()
+    for i in schedule_list:
+        print(f'TravelPlan: {i.id}')
+    for i in city_list:
+        print(f'City: {i.id}')
 
     return render(request, 'index.html', context)
 
@@ -48,22 +57,3 @@ def delete_city(request, pk):
         return redirect('/')
 
     return render(request, 'index.html', {'city': city})
-
-# def add_schedule(request, pk):
-#
-#     # city = get_object_or_404(City, pk=pk)
-#     schedule_form = PlanForm()
-#
-#     if request.method == 'POST':
-#         schedule_form = PlanForm(data = request.POST)
-#         if schedule_form.is_valid():
-#             schedule_form.save()
-#             return redirect('/')
-#
-#     return render(request, 'index.html', {'schedule_form': schedule_form})
-
-# if request.method == 'POST' and 'save_schedule' in request.POST:
-#     schedule_form = PlanForm(data = request.POST)
-#     if schedule_form.is_valid():
-#         schedule_form.save()
-# schedule_form = PlanForm(data = request.POST)
