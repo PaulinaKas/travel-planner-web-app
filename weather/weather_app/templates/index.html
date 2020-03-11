@@ -38,7 +38,7 @@
                             </form>
                         </td>
                         <td>
-                            <form method="POST" action="{% url 'delete_city' weather.city.id %}">
+                            <form method="POST" action="{% url 'delete_city' weather.id %}">
                                 {% csrf_token %}
                                 <input type="image" class="delete_button" src="https://img.icons8.com/windows/40/000000/delete-forever.png" value="Delete">
                             </form>
