@@ -7,3 +7,5 @@ weather/weather_app/__pycache__/
 db.sqlite3
 weather/weather_app/api_keys.txt
 chromedriver
+weather/weather_app/templates/list_previous.html
+weather/weather_app/templates/base_previous.html
