@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block form_action %}{% url 'view_list' list.id %}{% endblock %}
+
+{% block table %}
+    <table id="id_list_table" class="table">
+        <tr><th>City</th><th>Weather forecast</th><th></th><th></th></tr>
+        {% for weather in weather_data %}
+            <tr>
+                <td>{{ weather.city }}</td>
+                <td><img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Image" class="center"></td>
+                <td></td>
+                <td>
+                    <form method="POST" action="{% url 'delete_city' weather.id list.id%}">
+                        {% csrf_token %}
+                        <input type="image" class="delete_button" src="https://img.icons8.com/windows/40/000000/delete-forever.png" value="Delete">
+                    </form>
+                </td>
+            </tr>
+            <tr><td></td><td>{{ weather.temperature }} °C and {{ weather.pressure }} hPa</td><td></td><td></td></tr>
+            <tr><td></td><td>{{ weather.description }}</td><td></td><td></td></tr>
+        {% endfor %}
+    </table>
+{% endblock %}
