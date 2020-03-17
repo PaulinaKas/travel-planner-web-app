@@ -4,12 +4,19 @@
 
 {% block table %}
     <table id="id_list_table" class="table">
-        <tr><th>City</th><th>Weather forecast</th><th></th><th></th></tr>
+        <tr><th>City</th><th>Weather forecast</th><th>Travel schedule</th><th></th></tr>
         {% for weather in weather_data %}
             <tr>
                 <td>{{ weather.city }}</td>
                 <td><img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Image" class="center"></td>
-                <td></td>
+                <td>
+                    {{ weather.schedule }}
+                    <form method="POST" action="{% url 'add_schedule' weather.id list.id%}">
+                        {% csrf_token %}
+                        {{ schedule_form.text }}
+                        <button type="submit" class="button_save_schedule" name='save_schedule'>Save</button>
+                    </form>
+                </td>
                 <td>
                     <form method="POST" action="{% url 'delete_city' weather.id list.id%}">
                         {% csrf_token %}
