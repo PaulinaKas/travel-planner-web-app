@@ -4,7 +4,7 @@
 
 {% block table %}
     <table id="id_list_table" class="table">
-        <tr>
+        <tr id="header">
             <th>City</th>
             <th>Weather forecast</th>
             <th>Travel schedule</th>
@@ -12,9 +12,13 @@
         </tr>
         {% for weather in weather_data %}
             <tr>
-                <td rowspan="3">{{ weather.city }}</td>
-                <td><img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Image" class="center"></td>
-                <td id="schedule_table" rowspan="3">
+                <td>{{ weather.city }}</td>
+                <td>
+                    <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Image" class="center"><br>
+                    {{ weather.temperature }} °C and {{ weather.pressure }} hPa<br>
+                    {{ weather.description }}
+                </td>
+                <td id="schedule_table">
                     {{ weather.schedule }}
                     <form method="POST" action="{% url 'add_schedule' weather.id list.id %}">
                         {% csrf_token %}
@@ -22,18 +26,12 @@
                         <button type="submit" class="button_save_schedule" name='save_schedule'>Save</button>
                     </form>
                 </td>
-                <td rowspan="3">
+                <td>
                     <form method="POST" action="{% url 'delete_city' weather.id list.id%}">
                         {% csrf_token %}
                         <input type="image" class="delete_button" src="https://img.icons8.com/windows/40/000000/delete-forever.png" value="Delete">
                     </form>
                 </td>
-            </tr>
-            <tr class="noborders">
-                <td>{{ weather.temperature }} °C and {{ weather.pressure }} hPa</td>
-            </tr>
-            <tr class="noborders">
-                <td>{{ weather.description }}</td>
             </tr>
         {% endfor %}
     </table>

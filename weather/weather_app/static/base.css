@@ -1,16 +1,27 @@
 body {
-    font-family: 'Lato';
+    font-family: 'Baloo Thambi 2';
     padding: 2rem 3rem;
+    background:#FFFFFF;
+    font-size:17px;
 }
+
+.title {
+    font-size:70px;
+}
+
+.title, .subtitle {
+    font-family: 'Caveat';
+}
+
 
 .content {
     text-align: center;
 }
 
 .button, .button_add_city {
-    background:#5959D1;
+    background:#EB5C2E;
     color:#fff;
-    outline-color:#bf56ab;
+    outline-color:#063852;
     padding:10px 10px;
     font-size:15px;
     text-transform:uppercase;
@@ -18,22 +29,42 @@ body {
     margin: 10px auto;
     width:250px;
     display: block;
+    border-radius: 8px;
 }
+
+.button, .button_save_schedule {
+    background:#5E5E5E;
+    color:#fff;
+    outline-color:#063852;
+    padding:10px 10px;
+    font-size:15px;
+    text-transform:uppercase;
+    cursor: pointer;
+    margin: 10px auto;
+    width:250px;
+    display: block;
+    border-radius: 8px;
+}
+
 
 #id_name {
     padding:10px 10px;
-    font-size:15px;
+    font-size:20px;
+    background: #FFF;
     outline-color:#fff;
-    width:600px;
-    border-color: #9d56bf;
+    width:700px;
+    border-color: #DBCAC9;
+    color:#4C4C4C;
     display: block;
     text-align:center;
     margin: auto;
+    border-radius: 8px;
 }
 
 table {
     margin: auto;
     width: 80%;
+    background: #F4F4F4;
 }
 
 td {
@@ -50,12 +81,22 @@ hr {
     padding: 0;
 }
 
+#header {
+    font-family: 'Caveat';
+    color: #4C4C4C;
+    font-size:30px;
+}
+
 
 #id_text {
     width: 100% !important;
     height: 200px !important;
     resize: none !important;
     word-wrap: break-word;
+    text-align: center;
+    outline-color:#fff;
+    border-color: #c9c9c9;
+    border-radius: 8px;
 }
 
 #schedule_table {
@@ -63,6 +104,10 @@ hr {
     text-align: justify;
 }
 
+
 .noborders td {
     border:0;
+}
+.jumbotron {
+    background:#F7E4E3;
 }
