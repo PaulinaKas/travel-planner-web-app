@@ -1,5 +1,5 @@
 from django import forms
-from .models import City
+from .models import City, Schedule
 
 EMPTY_CITY_ERROR = "You can't have an empty city name in your travel schedule"
 
@@ -9,7 +9,7 @@ class CityForm(forms.models.ModelForm):
         model = City
         fields = ('name',)
         widgets = {
-            'text': forms.fields.TextInput(attrs={
+            'name': forms.fields.TextInput(attrs={
                 'placeholder': 'Enter a city',
                 'class': 'form-control input-lg',
             }),
@@ -23,13 +23,17 @@ class CityForm(forms.models.ModelForm):
         self.instance.list = for_list
         return super().save()
 
-# class PlanForm(forms.models.ModelForm):
-#     class Meta:
-#         model = TravelPlan
-#         fields = ['text']
-#         widgets = {
-#             'text': forms.Textarea(attrs={
-#                     'class' : 'input',
-#                     'placeholder' : 'Add your travel plan',
-#                 }),
-#             }
+class ScheduleForm(forms.models.ModelForm):
+    class Meta:
+        model = Schedule
+        fields = ('text',)
+        widgets = {
+            'text': forms.fields.TextInput(attrs={
+                    'class' : 'input',
+                    'placeholder' : 'Add your travel schedule',
+                }),
+            }
+    # 
+    # def save(self, for_city):
+    #     self.instance.city = for_city
+    #     return super().save()
