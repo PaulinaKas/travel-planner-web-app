@@ -33,7 +33,7 @@ class ScheduleForm(forms.models.ModelForm):
                     'placeholder' : 'Add your travel schedule',
                 }),
             }
-    # 
+
     # def save(self, for_city):
     #     self.instance.city = for_city
     #     return super().save()

@@ -39,6 +39,7 @@ def view_list(request, list_id):
     schedules_without_extraction = Schedule.objects.all().values()
     schedules = []
     for schedule in schedules_without_extraction:
+
         # 'extracted_text_field' variable is a 'text' field of model object Schedule.
         # Results of using splits below can change after adding new fields to model.
         if schedule.get('text') != '':
@@ -46,7 +47,7 @@ def view_list(request, list_id):
             schedules.append(extracted_text_field)
         else:
             schedules.append('') # In case that schedule is not yet filled in, website will print empty string
-        if extracted_text_field != '':
+        if schedule.get('text') != '':
             schedule_form = ScheduleForm(data = extracted_text_field)
     schedule_form = ScheduleForm()
 
@@ -59,7 +60,7 @@ def view_list(request, list_id):
             'description' : city_weather['weather'][0]['description'],
             'icon' : city_weather['weather'][0]['icon'],
             'id': city.id,
-            'schedule': schedules[idx],
+            'schedule': schedules[city.id-1], # city.id-1 to avoid 'index out of range'
             }
         weather_data.append(weather)
 
