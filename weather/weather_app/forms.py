@@ -28,7 +28,7 @@ class ScheduleForm(forms.models.ModelForm):
         model = Schedule
         fields = ('text',)
         widgets = {
-            'text': forms.fields.TextInput(attrs={
+            'text': forms.Textarea(attrs={
                     'class' : 'input',
                     'placeholder' : 'Add your travel schedule',
                 }),
