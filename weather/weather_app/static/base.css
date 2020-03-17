@@ -52,7 +52,7 @@ body {
     font-size:20px;
     background: #FFF;
     outline-color:#fff;
-    width:700px;
+    width:80%;
     border-color: #DBCAC9;
     color:#4C4C4C;
     display: block;
@@ -64,7 +64,7 @@ body {
 table {
     margin: auto;
     width: 80%;
-    background: #F4F4F4;
+    background: #EDEDED;
 }
 
 td {
@@ -93,7 +93,7 @@ hr {
     height: 200px !important;
     resize: none !important;
     word-wrap: break-word;
-    text-align: center;
+    text-align: left;
     outline-color:#fff;
     border-color: #c9c9c9;
     border-radius: 8px;
@@ -110,4 +110,16 @@ hr {
 }
 .jumbotron {
     background:#F7E4E3;
+}
+
+#city_table{
+    font-size:25px;
+}
+
+.image {
+    filter: contrast(300%);
+}
+
+.delete_button {
+    outline-color:#fff;
 }

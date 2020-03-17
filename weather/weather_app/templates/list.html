@@ -12,9 +12,9 @@
         </tr>
         {% for weather in weather_data %}
             <tr>
-                <td>{{ weather.city }}</td>
+                <td id="city_table">{{ weather.city }}</td>
                 <td>
-                    <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Image" class="center"><br>
+                    <img src="http://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="Image" class="image"><br>
                     {{ weather.temperature }} °C and {{ weather.pressure }} hPa<br>
                     {{ weather.description }}
                 </td>
