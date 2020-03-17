@@ -11,4 +11,4 @@ class City(models.Model):
     list = models.ForeignKey(List, default=None, on_delete=models.PROTECT)
 
 class Schedule(models.Model):
-    text = models.CharField(max_length=3000, default='')
+    text = models.TextField(max_length=3000, default='')
