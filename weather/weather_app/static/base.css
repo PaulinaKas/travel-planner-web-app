@@ -36,6 +36,11 @@ table {
     width: 80%;
 }
 
+td {
+    width: 20%;
+}
+
+
 hr {
     display: block;
     height: 1px;
@@ -47,8 +52,17 @@ hr {
 
 
 #id_text {
-    width: 400px !important;
+    width: 100% !important;
     height: 200px !important;
     resize: none !important;
     word-wrap: break-word;
+}
+
+#schedule_table {
+    width: 70% !important;
+    text-align: justify;
+}
+
+.noborders td {
+    border:0;
 }
