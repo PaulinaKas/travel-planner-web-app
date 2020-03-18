@@ -37,7 +37,6 @@ def view_list(request, list_id):
     schedules_without_extraction = Schedule.objects.all().values()
     schedules = []
     for schedule in schedules_without_extraction:
-
         # 'extracted_text_field' variable is a 'text' field of model object Schedule.
         # Results of using splits below can change after adding new fields to model.
         if schedule.get('text') != '':
