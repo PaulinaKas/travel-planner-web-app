@@ -45,8 +45,7 @@ def view_list(request, list_id):
             schedules.append(extracted_text_field)
         else:
             schedules.append('') # In case that schedule is not yet filled in, website will print empty string
-        if schedule.get('text') != '':
-            schedule_form = ScheduleForm(data = extracted_text_field)
+
     schedule_form = ScheduleForm()
 
     for idx, city in enumerate(cities):
@@ -82,7 +81,6 @@ def add_schedule(request, schedule_id, list_id):
 
     schedule = get_object_or_404(Schedule, pk=schedule_id)
     list_ = List.objects.get(id=list_id)
-    cities = list_.city_set.all()
 
     if request.method == 'POST':
         schedule.text = request.POST
