@@ -15,8 +15,6 @@ def delete_city(request, city_id, list_id):
         city.delete()
         return redirect(list_)
 
-    return render(request, 'home.html', {'city': city})
-
 
 def new_list(request):
     form = CityForm(data=request.POST)
@@ -90,7 +88,3 @@ def add_schedule(request, schedule_id, list_id):
         schedule.text = request.POST
         schedule.save()
         return redirect(list_)
-
-    return render(request, 'list.html', {'schedule_form': schedule_form,
-                                        'list': list_,
-                                        })
