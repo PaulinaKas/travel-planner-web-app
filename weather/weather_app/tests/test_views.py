@@ -170,9 +170,7 @@ class DeleteCityTest(TestCase):
         city = City.objects.create(list = list_,
                                    name = 'City',)
         Schedule.objects.create()
-
         self.client.get('/lists/%d/' % (list_.id,))
-
         self.assertEqual(City.objects.all().count(), 1)
 
         self.client.post(reverse('delete_city', kwargs={'city_id': city.id,
