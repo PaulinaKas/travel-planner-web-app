@@ -36,14 +36,24 @@ def view_list(request, list_id):
 
     schedules_without_extraction = Schedule.objects.all().values()
     schedules = []
+    '''
+    schedule looks like:
+    {'id': 1, 'text': "<QueryDict: {'csrfmiddlewaretoken': ['...'],
+                                    'text': ['Lorem ipsum dolor sit a'],
+                                    'save_schedule': ['']}>"}
+    schedule.get('text') looks like:
+    <QueryDict: {'csrfmiddlewaretoken': ['...'],
+                 'text': ['Lorem ipsum dolor sit a'],
+                 'save_schedule': ['']}>
+    '''
+    separ_str = "': ['" # string_appearing_behind_text
+    index = 2 # index_of_element_of_list_where_wanted_text_occurs
     for schedule in schedules_without_extraction:
-        # 'extracted_text_field' variable is a 'text' field of model object Schedule.
-        # Results of using splits below can change after adding new fields to model.
         if schedule.get('text') != '':
-            extracted_text_field = schedule.get('text').split("': ['")[2].split("'")[0]
+            extracted_text_field = schedule.get('text').split(separ_str)[index].split("'")[0]
             schedules.append(extracted_text_field)
         else:
-            schedules.append('') # In case that schedule is not yet filled in, website will print empty string
+            schedules.append('')
 
     schedule_form = ScheduleForm()
 
