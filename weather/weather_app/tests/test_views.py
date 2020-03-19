@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.utils.html import escape
+from django.shortcuts import get_object_or_404
 from django.urls import resolve, reverse
 from django.core.exceptions import ValidationError
 from unittest import skip
@@ -58,7 +59,7 @@ class NewListTest(TestCase):
 
 
 
-class ListViewTest(TestCase):
+class ViewListTest(TestCase):
 
     def test_uses_list_template(self):
         list_ = List.objects.create()
@@ -144,6 +145,15 @@ class ListViewTest(TestCase):
         with self.assertRaises(ValidationError):
             city.save()
             city.full_clean()
+
+    def test_redirects_after_POST_city(self):
+        list_ = List.objects.create()
+        schedule = Schedule.objects.create()
+        response = self.client.post('/lists/%d/' % (list_.id,),
+                                    data={'name': 'London'})
+
+        self.assertRedirects(response, '/lists/%d/' % (list_.id,))
+
 
 class AddScheduleTest(TestCase):
 
