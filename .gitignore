@@ -10,3 +10,7 @@ chromedriver
 weather/weather_app/templates/list_previous.html
 weather/weather_app/templates/base_previous.html
 .coverage
+bin/*
+lib/*
+weather/htmlcov/
+weather/.coveragerc
