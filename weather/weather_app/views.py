@@ -51,7 +51,10 @@ def view_list(request, list_id):
     for schedule in schedules_without_extraction:
         if schedule.get('text') != '':
             extracted_text_field = schedule.get('text').split(separ_str)[index].split("'")[0]
-            extracted_text_field = extracted_text_field.replace('\\\\n', '\n')
+            # below replace \n \r into breaklines
+            extracted_text_field = extracted_text_field.replace('\\\\', '')
+            extracted_text_field = extracted_text_field.replace('\\r', '')
+            extracted_text_field = extracted_text_field.replace('\\n', '\n')
             schedules.append(extracted_text_field)
         else:
             schedules.append('')
