@@ -12,6 +12,7 @@ weather/weather_app/templates/base_previous.html
 .coverage
 bin/*
 lib/*
+weather/__pycache__/*
 weather/htmlcov/
 weather/.coveragerc
 weather/private.py
