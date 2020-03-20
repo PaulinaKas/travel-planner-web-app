@@ -19,7 +19,7 @@
                     {{ weather.description }}
                 </td>
                 <td id="schedule_table">
-                    {{ weather.schedule }}
+                    {{ weather.schedule|linebreaks }}
                     <form method="POST" action="{% url 'add_schedule' weather.id list.id %}">
                         {% csrf_token %}
                         {{ schedule_form.text }}
