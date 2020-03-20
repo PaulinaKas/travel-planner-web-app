@@ -17,3 +17,4 @@ weather/__pycache__/*
 weather/htmlcov/
 weather/.coveragerc
 weather/private.py
+weather/weather_app/static/movie.mov
