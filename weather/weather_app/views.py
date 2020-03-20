@@ -51,6 +51,7 @@ def view_list(request, list_id):
     for schedule in schedules_without_extraction:
         if schedule.get('text') != '':
             extracted_text_field = schedule.get('text').split(separ_str)[index].split("'")[0]
+            extracted_text_field = extracted_text_field.replace('\\\\n', '\n')
             schedules.append(extracted_text_field)
         else:
             schedules.append('')
@@ -68,6 +69,7 @@ def view_list(request, list_id):
             'id': city.id,
             'schedule': schedules[city.id-1], # city.id-1 to avoid 'index out of range'
             }
+        print(weather.values())
         weather_data.append(weather)
 
 
