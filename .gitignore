@@ -3,6 +3,7 @@ weather/weather/__pycache__
 weather/db.sqlite3
 weather/weather/__pycache__/
 weather/weather_app/__pycache__/
+weather/weather_app/api_keys.txt
 .DS_Store
 db.sqlite3
 weather/weather_app/api_keys.txt
