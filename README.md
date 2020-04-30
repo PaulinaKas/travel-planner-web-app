@@ -1,4 +1,4 @@
-# Reading Tracker App 
+# Travel Planner App 
 #### Django app that helps to manage travels. After entering cities to visit, user finds out weather forecasts and can fill in travel schedules.
 
 
